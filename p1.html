@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function sumar(){
+            var x=Number (document.getElementById("dato1").value);
+            var y=Number (document.getElementById("dato2").value);
+            alert(x+y)
+            var res = x+y;
+            document.getElementById("resultado").innerHTML=res;
+            
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica</title>
+</head>
+
+<body>
+    <h2>Java Script numeros</h2>
+    <form name="datos">
+        Ingrese el primer dato
+        <input type="number" name="dato1" id="dato1"><br>
+        ingrese el primer dato
+        <input type="number" name="dato2" id="dato2"><br>
+        <span id="resultado"></span><br>
+        <input type="button" onclick="sumar()"value="sumar"><br>
+    </form>
+    
+    
+</body>
+</html>

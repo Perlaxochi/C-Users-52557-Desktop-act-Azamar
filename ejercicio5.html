@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+
+    <script>
+        function generarRFC() {
+            var apellidopa = document.getElementById("apellidop").value;
+            var apellidoma = document.getElementById("apellidom").value;
+            var nombre = document.getElementById("nombre").value;
+            var fecha = document.getElementById("fecha").value;
+            var arreglo = new Array();
+            var aux1, aux2, nom, aux4 = "";
+            var primeraVocalPaterno = "";
+            var homoclave = "";
+            var homoclave = generarHomoclave();
+            var rfc = "";
+
+
+            for (let i = 0; i < apellidopa.length; i++) {
+                arreglo[i] = apellidopa.substring(i, i + 1);
+                aux1 = arreglo[0];
+            }
+            //vocal de apellido paterno
+            for (let i = 1; i < apellidopa.length; i++) {
+                if (/[AEIOU]/.test(apellidopa.charAt(i))) {
+                    primeraVocalPaterno = apellidopa.charAt(i);
+                    break;
+                }
+            }
+            if (primeraVocalPaterno === '') {
+                primeraVocalPaterno = apellidopa.charAt(1);
+            }
+
+            for (let i = 1; i < apellidoma.length; i++) {
+                arreglo[i] = apellidoma.substring(i, i + 1);
+                aux2 = arreglo[0];
+            }
+
+            for (let i = 0; i < nombre.length; i++) {
+                arreglo[i] = nombre.substring(i, i + 1);
+                nom = arreglo[0];
+            }
+
+            aux4 = document.getElementById("fecha").value.replaceAll("-", "").substring(2);
+
+            function generarHomoclave() {
+                for (let i = 0; i < 3; i++) {
+                    homoclave += Math.floor(Math.random() * 10);
+                }
+                return homoclave;
+            }
+        
+
+        rfc = aux1 + primeraVocalPaterno + aux2 + nom + aux4 + homoclave;
+
+        document.getElementById("rfc").innerHTML = "RFC: " + rfc;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Ejercicio 4</h2>
+    <form name="obtener tu rfc">
+        Apellido Paterno<input type="text" id="apellidop"><br><br>
+        Apellido Materno <input type="text" id="apellidom"><br><br>
+        Nombre <input type="text" id="nombre"><br><br>
+        Fecha de nacimiento <input type="date" id="fecha"><br><br>
+        <input type="button" onclick=generarRFC() value="obtener rfc">
+    </form>
+
+    <p id="rfc"></p>
+</body>
+
+</html>

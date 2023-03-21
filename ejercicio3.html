@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function cambiar(){
+            var nombre=document.getElementById("nombre").value;
+            var arreglo= new Array();
+        //    var vector[0]=5;
+        var salida=" ";
+        for(let i=0;i<nombre.length;i++){
+            arreglo[i]=nombre.substring(i,i+1);
+        }
+        for(let i=nombre.length-1;i>=0;i--){
+            salida +=arreglo[i];
+        }
+        document.getElementById("resultado").innerHTML=salida;
+        }
+
+    </script>
+</head>
+<body>
+<h2>Ejercicio3</h2>
+<p> Desarrollar una aplicación en JS que ingrese el nombre completo de una persona y lo muestra de forma invesra</p>
+<form name="nombres">
+    <label>Introduce tu nombre completo</label> 
+    <input type="text" id="nombre"><br>
+    <input type="button" onclick="cambiar()" value="invertir nombre">
+
+</form>
+<p id="resultado"></p>
+</body>
+</html>

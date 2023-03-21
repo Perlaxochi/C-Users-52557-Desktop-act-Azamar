@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function tabla(){
+            var salida="";
+            var x=Number (document.getElementById("dato1").value);
+            for(var i=1; i<=10; i++){
+                salida += x +" X " + i + " = " + x*i+"<br>";
+            }
+            document.getElementById("resultado").innerHTML=salida;
+            
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica</title>
+</head>
+
+<body>
+    <h2> tablas de multiplicar </h2>
+    <form name="datos">
+        Ingrese un numero del 1 al 10
+        <input type="number" name="dato1" id="dato1"><br>
+        <input type="button" onclick="tabla()"value="multiplicar"><br>
+        <span id="resultado"></span><br>
+    </form>
+    
+    
+</body>
+</html>
